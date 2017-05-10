@@ -82,14 +82,14 @@ function SWEP:PrimaryAttack()
 	
 	if Trace.HitPos:Distance(self.Owner:GetPos()) > self.TorchDistance || !IsValid(Trace.Entity) then
 		self.Weapon:SetNextPrimaryFire(CurTime() + 1)
-		if SERVER then Notify(self.Owner, 1, 4, "Must use on a entity!"); end
+		if SERVER then DarkRP.notify(self.Owner, 1, 4, "Must use on a entity!"); end
 		return false;
 	end
 	
 	
 	if !table.HasValue(TorchableEnts, Trace.Entity:GetClass()) then
 		self.Weapon:SetNextPrimaryFire(CurTime() + 1)
-		if SERVER then Notify(self.Owner, 1, 4, "Can't use on this entity!"); end
+		if SERVER then DarkRP.notify(self.Owner, 1, 4, "Can't use on this entity!"); end
 		return false;
 	end
 	local effectdata = EffectData()
